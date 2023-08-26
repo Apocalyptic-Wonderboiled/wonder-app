@@ -10,7 +10,8 @@ export const useChatGpt = () => {
       const response = await callChatGpt();
       setText(response);
     } catch (error) {
-      throw new Error(error);
+      setText('APIリクエスト中にエラーが発生しました。'); // TODO: エラー発生時のUIを表現するものを考える。例：isErrorのstateを用意してtrueにするとエラー表示のコンポーネントが表示されるようにするとか
+      console.error(error);
     }
   };
 

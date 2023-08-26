@@ -14,7 +14,13 @@ export const callChatGpt = async () => {
       model: 'gpt-3.5-turbo',
     });
 
-    return completion.choices[0].message.content;
+    const content = completion?.choices[0]?.message.content;
+
+    if (!content) {
+      throw new Error('Content was not properly returned.');
+    }
+
+    return content;
   } catch (error) {
     throw new Error(error);
   }
