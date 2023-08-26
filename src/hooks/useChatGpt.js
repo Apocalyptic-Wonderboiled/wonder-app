@@ -8,7 +8,7 @@ export const useChatGpt = () => {
     try {
       setText('ローディング中...'); // 仮で文字列にしておく。TODO：booleanの状態変化するuseStateを実装してローディングのコンポーネントをtrue/falseで表示するようにする
       const response = await callChatGpt();
-      setTimeout(() => setText(response), 3000);
+      setText(response);
     } catch (error) {
       throw new Error(error);
     }
