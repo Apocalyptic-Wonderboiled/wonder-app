@@ -9,7 +9,7 @@ export const callChatGpt = async () => {
 
     const completion = await openai.chat.completions.create({
       messages: [
-        { role: 'user', content: 'Tell us about your favorite destinations in Aomori Prefecture in Japanese.' },
+        { role: 'user', content: 'Tell us about your favorite destinations in Aomori Prefecture in Japanese.' }, // TODO: Aomoriの部分は引数で受け取るようにする
       ],
       model: 'gpt-3.5-turbo',
     });
