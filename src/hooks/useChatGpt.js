@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import { callChatGpt } from '../lib/callChatGpt';
 
 export const useChatGpt = () => {
+  const [text, setText] = useState(null);
+
   const getReply = async () => {
     try {
+      setText('ローディング中...'); // 仮で文字列にしておく。TODO：booleanの状態変化するuseStateを実装してローディングのコンポーネントをtrue/falseで表示するようにする
       const response = await callChatGpt();
-      console.log(response);
+      setTimeout(() => setText(response), 3000);
     } catch (error) {
       throw new Error(error);
     }
   };
 
-  return [getReply];
+  return [text, getReply];
 };

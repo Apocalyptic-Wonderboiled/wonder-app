@@ -4,7 +4,7 @@ import { useChatGpt } from './hooks/useChatGpt';
 import { StopButton } from './components/StopButton';
 
 function App() {
-  const [getReply] = useChatGpt();
+  const [text, getReply] = useChatGpt();
   const handleClick = () => getReply();
 
   return (
@@ -14,6 +14,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>{text ? text : 'ここにテキストが書かれます'}</p>
         <StopButton handleClick={handleClick} />
       </header>
     </div>
