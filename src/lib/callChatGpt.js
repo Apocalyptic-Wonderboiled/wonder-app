@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import axios from 'axios';
 import { worker } from '../mocks/browser';
 
-export const callChatGpt = async () => {
+export const callChatGpt = async (options) => {
   try {
     const openai = new OpenAI({
       apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -11,7 +11,7 @@ export const callChatGpt = async () => {
 
     const completion = await openai.chat.completions.create({
       messages: [
-        { role: 'user', content: 'Tell us about your favorite destinations in Aomori Prefecture in Japanese.' }, // TODO: Aomoriの部分は引数で受け取るようにする
+        { role: 'user', content: `Tell us about your favorite destinations in ${options} Prefecture in Japanese.` },
       ],
       model: 'gpt-3.5-turbo',
     });
