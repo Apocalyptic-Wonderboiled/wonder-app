@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { useChatGpt } from './hooks/useChatGpt';
+import { StopButton } from './components/StopButton';
 
 function App() {
+  const [getReply] = useChatGpt();
+  const handleClick = () => getReply();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +14,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <StopButton handleClick={handleClick} />
       </header>
     </div>
   );
