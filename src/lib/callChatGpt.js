@@ -1,4 +1,6 @@
 import OpenAI from 'openai';
+import axios from 'axios';
+import { worker } from '../mocks/browser';
 
 export const callChatGpt = async () => {
   try {
@@ -21,6 +23,18 @@ export const callChatGpt = async () => {
     }
 
     return content;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const callChatGptMock = async (options) => {
+  worker.start();
+
+  const url = 'http://localhost:3000/v1/chat/completions';
+  try {
+    const response = await axios.post(url, options);
+    return response.data.content;
   } catch (error) {
     throw new Error(error);
   }
