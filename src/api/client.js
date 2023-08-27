@@ -7,7 +7,10 @@ export class Client {
 
   async execute() {
     try {
-      return (await process.env.NODE_ENV) === 'development' ? callChatGptMock(this.options) : callChatGpt(this.options);
+      if (process.env.NODE_ENV === 'development') {
+        return await callChatGptMock(this.options);
+      }
+      return await callChatGpt(this.options);
     } catch (error) {
       throw new Error(error);
     }
