@@ -14,6 +14,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>デプロイテスト用のテキスト</p>
         <p>{text ? text : 'ここにテキストが書かれます'}</p>
         <StopButton handleClick={handleClick} />
       </header>
