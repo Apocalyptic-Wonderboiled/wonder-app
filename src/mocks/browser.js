@@ -17,7 +17,7 @@ export const worker = setupWorker(
 
     // あくまでもモックなので、どの都道府県が選択されても一旦、広島県の説明を返すようにする
     return res(
-      ctx.status(201),
+      ctx.status(200),
       ctx.delay(1000),
       ctx.json({
         content: `広島県には魅力的な観光地がたくさんあります。以下はおすすめの旅行先です。
