@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 function App() {
   const [text, getReply] = useChatGpt();
   const [prefecture, getPrefecture] = useRandomPrefecture();
-  const [isButtonClicked, setIsButtonClicked] = useState(true);
   const [isTopPage, setIsTopPage] = useState(true);
 
   const handleClick = () => {
@@ -17,9 +16,7 @@ function App() {
     setIsTopPage(true);
   };
 
-  const linkDecidePrefecturePage = () => {
-    setIsTopPage(false);
-  };
+  const linkDecidePrefecturePage = () => setIsTopPage(false);
 
   useEffect(() => {
     if (!prefecture) return;
