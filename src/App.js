@@ -9,11 +9,16 @@ function App() {
   const [text, getReply] = useChatGpt();
   const [prefecture, getPrefecture] = useRandomPrefecture();
   const [isButtonClicked, setIsButtonClicked] = useState(true);
+  const [isTopPage, setIsTopPage] = useState(true);
 
   const handleClick = () => {
-    setIsButtonClicked(!isButtonClicked);
-    if (isButtonClicked) return;
+    if (isTopPage) return;
     getPrefecture();
+    setIsTopPage(true);
+  };
+
+  const linkDecidePrefecturePage = () => {
+    setIsTopPage(false);
   };
 
   useEffect(() => {
@@ -29,8 +34,11 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>デプロイテスト用のテキスト</p>
-        <p>{text && isButtonClicked ? text : 'ここにテキストが書かれます'}</p>
-        <StartStopButton handleClick={handleClick} text={isButtonClicked ? 'はじめる' : 'STOP'} />
+        <p>{text && isTopPage ? text : 'ここにテキストが書かれます'}</p>
+        <StartStopButton
+          handleClick={isTopPage ? linkDecidePrefecturePage : handleClick}
+          text={isTopPage ? 'はじめる' : 'STOP'}
+        />
       </header>
     </div>
   );
