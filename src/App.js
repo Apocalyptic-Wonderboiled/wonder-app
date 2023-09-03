@@ -1,15 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import { useChatGpt } from './hooks/useChatGpt';
-import { StopButton } from './components/StopButton';
-import { TestPrefectureButton } from './components/TestPrefectureButton';
+import { StartStopButton } from './components/StartStopButton';
 import { useRandomPrefecture } from './hooks/useRandomPrefecture';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [text, getReply] = useChatGpt();
-  const handleClick = () => getReply();
   const [prefecture, getPrefecture] = useRandomPrefecture();
-  const handleClick2 = () => getPrefecture();
+  const [isTopPage, setIsTopPage] = useState(true);
+
+  const handleClick = () => {
+    if (isTopPage) return;
+    getPrefecture();
+    setIsTopPage(true);
+  };
+
+  const linkDecidePrefecturePage = () => setIsTopPage(false);
+
+  useEffect(() => {
+    if (!prefecture) return;
+    getReply(prefecture.romaji);
+  }, [prefecture]);
 
   return (
     <div className="App">
@@ -19,11 +31,11 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>デプロイテスト用のテキスト</p>
-        <p>{text ? text : 'ここにテキストが書かれます'}</p>
-        <StopButton handleClick={handleClick} />
-        <p>{prefecture ? prefecture.kanji : '都道府県'}</p>
-        <p>{prefecture ? prefecture.romaji : 'todoufuken'}</p>
-        <TestPrefectureButton handleClick={handleClick2} />
+        <p>{text && isTopPage ? text : 'ここにテキストが書かれます'}</p>
+        <StartStopButton
+          handleClick={isTopPage ? linkDecidePrefecturePage : handleClick}
+          text={isTopPage ? 'はじめる' : 'STOP'}
+        />
       </header>
     </div>
   );
