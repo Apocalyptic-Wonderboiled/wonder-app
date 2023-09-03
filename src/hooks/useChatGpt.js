@@ -4,10 +4,10 @@ import { Client } from '../api/client';
 export const useChatGpt = () => {
   const [text, setText] = useState(null);
 
-  const getReply = async () => {
+  const getReply = async (prefecture) => {
     try {
       setText('ローディング中...'); // 仮で文字列にしておく。TODO：booleanの状態変化するuseStateを実装してローディングのコンポーネントをtrue/falseで表示するようにする
-      const client = new Client('Hiroshima');
+      const client = new Client(prefecture);
       const response = await client.execute();
       setText(response);
     } catch (error) {

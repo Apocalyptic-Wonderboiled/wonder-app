@@ -4,7 +4,7 @@ import prefectures from '../data/prefectures.json';
 export const worker = setupWorker(
   rest.post('/v1/chat/completions', (req, res, ctx) => {
     const pattern = new RegExp(`^${req.body}$`);
-    const isVerified = prefectures.some((prefecture) => pattern.test(prefecture));
+    const isVerified = prefectures.some((prefecture) => pattern.test(prefecture.romaji));
 
     if (!isVerified) {
       return res(
