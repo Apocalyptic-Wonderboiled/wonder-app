@@ -4,7 +4,7 @@ import prefectures from '../data/prefectures.json';
 export const worker = setupWorker(
   rest.post('/v1/chat/completions', (req, res, ctx) => {
     const pattern = new RegExp(`^${req.body}$`);
-    const isVerified = prefectures.some((prefecture) => pattern.test(prefecture));
+    const isVerified = prefectures.some((prefecture) => pattern.test(prefecture.romaji));
 
     if (!isVerified) {
       return res(
@@ -20,7 +20,8 @@ export const worker = setupWorker(
       ctx.status(200),
       ctx.delay(1000),
       ctx.json({
-        content: `広島県には魅力的な観光地がたくさんあります。以下はおすすめの旅行先です。
+        content: `都道府県名：${JSON.stringify(req.body)}
+        広島県には魅力的な観光地がたくさんあります。以下はおすすめの旅行先です。
 
         1. 広島平和記念公園と原爆ドーム: 第二次世界大戦で被爆した広島市にある平和祈念の地です。平和記念資料館もあり、歴史の学びと平和への思いを感じることができます。
         
