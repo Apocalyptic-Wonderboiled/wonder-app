@@ -1,0 +1,237 @@
+[
+  {
+    "romaji": "Hokkaido",
+    "kanji": "北海道",
+    "image": "hokkaido.png"
+  },
+  {
+    "romaji": "Aomori",
+    "kanji": "青森県",
+    "image": "aomori.png"
+  },
+  {
+    "romaji": "Iwate",
+    "kanji": "岩手県",
+    "image": "iwate.png"
+  },
+  {
+    "romaji": "Miyagi",
+    "kanji": "宮城県",
+    "image": "miyagi.png"
+  },
+  {
+    "romaji": "Akita",
+    "kanji": "秋田県",
+    "image": "akita.png"
+  },
+  {
+    "romaji": "Yamagata",
+    "kanji": "山形県",
+    "image": "yamagata.png"
+  },
+  {
+    "romaji": "Fukushima",
+    "kanji": "福島県",
+    "image": "fukushima.png"
+  },
+  {
+    "romaji": "Ibaraki",
+    "kanji": "茨城県",
+    "image": "ibaraki.png"
+  },
+  {
+    "romaji": "Tochigi",
+    "kanji": "栃木県",
+    "image": "tochigi.png"
+  },
+  {
+    "romaji": "Gunma",
+    "kanji": "群馬県",
+    "image": "gunma.png"
+  },
+  {
+    "romaji": "Saitama",
+    "kanji": "埼玉県",
+    "image": "saitama.png"
+  },
+  {
+    "romaji": "Chiba",
+    "kanji": "千葉県",
+    "image": "chiba.png"
+  },
+  {
+    "romaji": "Tokyo",
+    "kanji": "東京都",
+    "image": "tokyo.png"
+  },
+  {
+    "romaji": "Kanagawa",
+    "kanji": "神奈川県",
+    "image": "kanagawa.png"
+  },
+  {
+    "romaji": "Niigata",
+    "kanji": "新潟県",
+    "image": "niigata.png"
+  },
+  {
+    "romaji": "Toyama",
+    "kanji": "富山県",
+    "image": "toyama.png"
+  },
+  {
+    "romaji": "Ishikawa",
+    "kanji": "石川県",
+    "image": "ishikawa.png"
+  },
+  {
+    "romaji": "Fukui",
+    "kanji": "福井県",
+    "image": "fukui.png"
+  },
+  {
+    "romaji": "Yamanashi",
+    "kanji": "山梨県",
+    "image": "yamanashi.png"
+  },
+  {
+    "romaji": "Nagano",
+    "kanji": "長野県",
+    "image": "nagano.png"
+  },
+  {
+    "romaji": "Gifu",
+    "kanji": "岐阜県",
+    "image": "gifu.png"
+  },
+  {
+    "romaji": "Shizuoka",
+    "kanji": "静岡県",
+    "image": "shizuoka.png"
+  },
+  {
+    "romaji": "Aichi",
+    "kanji": "愛知県",
+    "image": "aichi.png"
+  },
+  {
+    "romaji": "Mie",
+    "kanji": "三重県",
+    "image": "mie.png"
+  },
+  {
+    "romaji": "Shiga",
+    "kanji": "滋賀県",
+    "image": "shiga.png"
+  },
+  {
+    "romaji": "Kyoto",
+    "kanji": "京都府",
+    "image": "kyoto.png"
+  },
+  {
+    "romaji": "Osaka",
+    "kanji": "大阪府",
+    "image": "osaka.png"
+  },
+  {
+    "romaji": "Hyogo",
+    "kanji": "兵庫県",
+    "image": "hyogo.png"
+  },
+  {
+    "romaji": "Nara",
+    "kanji": "奈良県",
+    "image": "nara.png"
+  },
+  {
+    "romaji": "Wakayama",
+    "kanji": "和歌山県",
+    "image": "wakayama.png"
+  },
+  {
+    "romaji": "Tottori",
+    "kanji": "鳥取県",
+    "image": "tottori.png"
+  },
+  {
+    "romaji": "Shimane",
+    "kanji": "島根県",
+    "image": "shimane.png"
+  },
+  {
+    "romaji": "Okayama",
+    "kanji": "岡山県",
+    "image": "okayama.png"
+  },
+  {
+    "romaji": "Hiroshima",
+    "kanji": "広島県",
+    "image": "hiroshima.png"
+  },
+  {
+    "romaji": "Yamaguchi",
+    "kanji": "山口県",
+    "image": "yamaguchi.png"
+  },
+  {
+    "romaji": "Tokushima",
+    "kanji": "徳島県",
+    "image": "tokushima.png"
+  },
+  {
+    "romaji": "Kagawa",
+    "kanji": "香川県",
+    "image": "kagawa.png"
+  },
+  {
+    "romaji": "Ehime",
+    "kanji": "愛媛県",
+    "image": "ehime.png"
+  },
+  {
+    "romaji": "Kochi",
+    "kanji": "高知県",
+    "image": "kochi.png"
+  },
+  {
+    "romaji": "Fukuoka",
+    "kanji": "福岡県",
+    "image": "fukuoka.png"
+  },
+  {
+    "romaji": "Saga",
+    "kanji": "佐賀県",
+    "image": "saga.png"
+  },
+  {
+    "romaji": "Nagasaki",
+    "kanji": "長崎県",
+    "image": "nagasaki.png"
+  },
+  {
+    "romaji": "Kumamoto",
+    "kanji": "熊本県",
+    "image": "kumamoto.png"
+  },
+  {
+    "romaji": "Oita",
+    "kanji": "大分県",
+    "image": "oita.png"
+  },
+  {
+    "romaji": "Miyazaki",
+    "kanji": "宮崎県",
+    "image": "miyazaki.png"
+  },
+  {
+    "romaji": "Kagoshima",
+    "kanji": "鹿児島県",
+    "image": "kagoshima.png"
+  },
+  {
+    "romaji": "Okinawa",
+    "kanji": "沖縄県",
+    "image": "okinawa.png"
+  }
+]
