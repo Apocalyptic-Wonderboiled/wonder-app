@@ -1,25 +1,54 @@
 import { useEffect } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
-import { useRandomPrefecture } from './../hooks/useRandomPrefecture';
+import { useDecidePrefecture } from '../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
+import styles from './DecidePrefecture.module.css';
 
 export const DecidePrefecture = () => {
   const [text, getReply] = useChatGpt();
-  const [prefecture, getPrefecture] = useRandomPrefecture();
+  const [
+    currentImageIndex,
+    isAnimating,
+    setIsAnimating,
+    shuffledPrefectures,
+    setShuffledPrefectures,
+    shufflePrefectures,
+    startAnimation,
+    stopAnimation,
+  ] = useDecidePrefecture();
 
-  const handleClick = () => getPrefecture();
+  // 初回レンダリング後のみ、配列の事前シャッフル実行（目押し防止）
+  useEffect(() => {
+    const shuffledPrefectures = shufflePrefectures();
+    setShuffledPrefectures(shuffledPrefectures);
+  }, []);
 
   useEffect(() => {
-    if (!prefecture) return;
-    getReply(prefecture.romaji);
-  }, [prefecture]);
+    if (isAnimating) {
+      startAnimation();
+    } else {
+      stopAnimation();
+      getReply(shuffledPrefectures[currentImageIndex].romaji);
+    }
+    return () => stopAnimation();
+  }, [isAnimating]);
+
+  const handleStopClick = () => setIsAnimating(false);
 
   return (
     <>
-      <h1>都道府県画像シャッフル画面</h1>
-      <img src={'都道府県の画像のパス'} alt="都道府県の画像" />
+      <div className={styles.imageContainer}>
+        <img
+          src={`/images/${shuffledPrefectures[currentImageIndex].image}`}
+          alt={shuffledPrefectures[currentImageIndex].kanji}
+          className={styles.image}
+        />
+      </div>
+      <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
       <p>{text && text}</p>
-      <StartStopButton handleClick={handleClick} text="STOP" />
+      <div className={styles.buttonContainer}>
+        <StartStopButton handleClick={handleStopClick} text="STOP" />
+      </div>
     </>
   );
 };
