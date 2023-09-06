@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
-import { useDecidePrefecture } from '../hooks/useDecidePrefecture';
+import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
 import styles from './DecidePrefecture.module.css';
 
