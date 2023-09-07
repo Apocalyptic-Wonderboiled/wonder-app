@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
 import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
 import styles from './DecidePrefecture.module.css';
 
 export const DecidePrefecture = () => {
-  const [text, getReply] = useChatGpt();
+  const [isLoading, setIsLoading] = useState(false);
+  const [text, setText, getReply] = useChatGpt();
   const [
     currentImageIndex,
     isAnimating,
@@ -28,12 +29,20 @@ export const DecidePrefecture = () => {
       startAnimation();
     } else {
       stopAnimation();
-      getReply(shuffledPrefectures[currentImageIndex].romaji);
+      getReply(shuffledPrefectures[currentImageIndex].romaji)
+        .then((reply) => setText(reply))
+        .catch((error) => setText('APIリクエスト中にエラーが発生しました。')) // TODO: エラー発生時のUIを表現するものを考える。例：isErrorのstateを用意してtrueにするとエラー表示のコンポーネントが表示されるようにするとか)
+        .finally(() => setIsLoading(false));
     }
     return () => stopAnimation();
   }, [isAnimating]);
 
-  const handleStopClick = () => setIsAnimating(false);
+  const handleStopClick = () => {
+    if (text) return;
+
+    setIsAnimating(false);
+    setIsLoading(true);
+  };
 
   return (
     <>
@@ -46,6 +55,7 @@ export const DecidePrefecture = () => {
       </div>
       <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
       <p>{text && text}</p>
+      {isLoading ? 'ロード中...' : ''}
       <div className={styles.buttonContainer}>
         <StartStopButton handleClick={handleStopClick} text="STOP" />
       </div>
