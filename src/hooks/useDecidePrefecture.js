@@ -27,8 +27,6 @@ export const useDecidePrefecture = () => {
         return prevIndex + 1;
       });
     }, 50);
-
-    return () => clearInterval(animationInterval);
   };
 
   const stopAnimation = () => clearInterval(animationInterval);
