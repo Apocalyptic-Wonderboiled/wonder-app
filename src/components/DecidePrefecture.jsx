@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
 import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
+import { Loading } from './Loading';
 import styles from './DecidePrefecture.module.css';
 
 export const DecidePrefecture = () => {
@@ -54,8 +55,8 @@ export const DecidePrefecture = () => {
         />
       </div>
       <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
+      {isLoading && <Loading />}
       <p>{text && text}</p>
-      {isLoading ? 'ロード中...' : ''}
       <div className={styles.buttonContainer}>
         <StartStopButton handleClick={handleStopClick} text="STOP" />
       </div>
