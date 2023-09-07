@@ -17,7 +17,7 @@ export const worker = setupWorker(
 
     return res(
       ctx.status(200),
-      ctx.delay(1000),
+      ctx.delay(2000),
       ctx.json({
         content: `
           ${prefecture.kanji}の説明だよ〜〜〜〜。${prefecture.kanji}の説明だよ〜〜〜〜。
