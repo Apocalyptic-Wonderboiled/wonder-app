@@ -1,0 +1,10 @@
+.imageContainer {
+  width: 80vw;
+  height: 100%;
+  max-width: 500px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}

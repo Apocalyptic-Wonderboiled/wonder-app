@@ -1,25 +1,65 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
-import { useRandomPrefecture } from './../hooks/useRandomPrefecture';
+import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
+import { Loading } from './Loading';
+import styles from './DecidePrefecture.module.css';
 
 export const DecidePrefecture = () => {
-  const [text, getReply] = useChatGpt();
-  const [prefecture, getPrefecture] = useRandomPrefecture();
+  const [isLoading, setIsLoading] = useState(false);
+  const [text, setText, getReply] = useChatGpt();
+  const [
+    currentImageIndex,
+    isAnimating,
+    setIsAnimating,
+    shuffledPrefectures,
+    setShuffledPrefectures,
+    shufflePrefectures,
+    startAnimation,
+    stopAnimation,
+  ] = useDecidePrefecture();
 
-  const handleClick = () => getPrefecture();
+  // 初回レンダリング後のみ、配列の事前シャッフル実行（目押し防止）
+  useEffect(() => {
+    const shuffledPrefectures = shufflePrefectures();
+    setShuffledPrefectures(shuffledPrefectures);
+  }, []);
 
   useEffect(() => {
-    if (!prefecture) return;
-    getReply(prefecture.romaji);
-  }, [prefecture]);
+    if (isAnimating) {
+      startAnimation();
+    } else {
+      stopAnimation();
+      getReply(shuffledPrefectures[currentImageIndex].romaji)
+        .then((reply) => setText(reply))
+        .catch((error) => setText('APIリクエスト中にエラーが発生しました。')) // TODO: エラー発生時のUIを表現するものを考える。例：isErrorのstateを用意してtrueにするとエラー表示のコンポーネントが表示されるようにするとか)
+        .finally(() => setIsLoading(false));
+    }
+    return () => stopAnimation();
+  }, [isAnimating]);
+
+  const handleStopClick = () => {
+    if (text) return;
+
+    setIsAnimating(false);
+    setIsLoading(true);
+  };
 
   return (
     <>
-      <h1>都道府県画像シャッフル画面</h1>
-      <img src={'都道府県の画像のパス'} alt="都道府県の画像" />
+      <div className={styles.imageContainer}>
+        <img
+          src={`/images/${shuffledPrefectures[currentImageIndex].image}`}
+          alt={shuffledPrefectures[currentImageIndex].kanji}
+          className={styles.image}
+        />
+      </div>
+      <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
+      {isLoading && <Loading />}
       <p>{text && text}</p>
-      <StartStopButton handleClick={handleClick} text="STOP" />
+      <div className={styles.buttonContainer}>
+        <StartStopButton handleClick={handleStopClick} text="STOP" />
+      </div>
     </>
   );
 };
