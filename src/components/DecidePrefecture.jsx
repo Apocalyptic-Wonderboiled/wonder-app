@@ -4,9 +4,11 @@ import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
 import { Loading } from './Loading';
 import styles from './DecidePrefecture.module.css';
+import { ErrorAlert } from './ErrorAlert';
 
 export const DecidePrefecture = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [text, setText, getReply] = useChatGpt();
   const [
     currentImageIndex,
@@ -32,7 +34,7 @@ export const DecidePrefecture = () => {
       stopAnimation();
       getReply(shuffledPrefectures[currentImageIndex].romaji)
         .then((reply) => setText(reply))
-        .catch((error) => setText('APIリクエスト中にエラーが発生しました。')) // TODO: エラー発生時のUIを表現するものを考える。例：isErrorのstateを用意してtrueにするとエラー表示のコンポーネントが表示されるようにするとか)
+        .catch((error) => setIsError(true))
         .finally(() => setIsLoading(false));
     }
     return () => stopAnimation();
@@ -56,6 +58,7 @@ export const DecidePrefecture = () => {
       </div>
       <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
       {isLoading && <Loading />}
+      {isError && <ErrorAlert text="おすすめスポットの取得ができませんでした。もう一度お試しください。" />}
       <p>{text && text}</p>
       <div className={styles.buttonContainer}>
         <StartStopButton handleClick={handleStopClick} text="STOP" />
