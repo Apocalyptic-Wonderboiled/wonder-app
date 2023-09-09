@@ -1,12 +1,43 @@
 import { StartStopButton } from './StartStopButton';
+import styles from './Top.module.css';
 
 export const Top = (props) => {
   return (
     <>
-      <div>
-        <img src={'/images/top_japan.png'} alt="日本列島の画像" />
+      <div className={styles.container}>
+        <h1>KARIAPP</h1>
+        <h2 className={styles.subtitle}>旅に出よう 〜行き先ランダム決定アプリ〜</h2>
       </div>
-      <StartStopButton handleClick={props.handleClick} text="はじめる" />
+
+      <div className={styles.container}>
+        <div className={styles.leftContainer}>
+          <div>
+            <img src={'/images/Top/footprints_l.png'} className={styles.footprintsLeftStyle} alt="足跡の画像" />
+          </div>
+          <div>
+            <img src={'/images/Top/img_01.jpg'} className={styles.image1Style} alt="ランドマーク画像" />
+          </div>
+          <div>
+            <img src={'/images/Top/img_03.jpg'} className={styles.image3Style} alt="ランドマーク画像" />
+          </div>
+        </div>
+
+        <div className={styles.centerContainer}>
+          <img src={'/images/Top/japan.png'} alt="日本列島の画像" />
+          <div>
+            <StartStopButton handleClick={props.handleClick} text="はじめる" />
+          </div>
+        </div>
+
+        <div className={styles.rightContainer}>
+          <div>
+            <img src={'/images/Top/img_02.jpg'} className={styles.image2Style} alt="画像" />
+          </div>
+          <div>
+            <img src={'/images/Top/footprints_r.png'} className={styles.footprintsRighttStyle} alt="足跡の画像" />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
