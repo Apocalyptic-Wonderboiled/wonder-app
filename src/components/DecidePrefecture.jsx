@@ -49,7 +49,7 @@ export const DecidePrefecture = () => {
     <>
       <div className={styles.imageContainer}>
         <img
-          src={`/images/${shuffledPrefectures[currentImageIndex].image}`}
+          src={`/images/DecidePrefecture/${shuffledPrefectures[currentImageIndex].image}`}
           alt={shuffledPrefectures[currentImageIndex].kanji}
           className={styles.image}
         />
