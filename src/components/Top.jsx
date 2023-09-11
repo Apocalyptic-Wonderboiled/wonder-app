@@ -4,12 +4,12 @@ import styles from './Top.module.css';
 export const Top = (props) => {
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.header}>
         <h1>KARIAPP</h1>
         <h2 className={styles.subtitle}>旅に出よう 〜行き先ランダム決定アプリ〜</h2>
       </div>
 
-      <div className={styles.container}>
+      <div className={styles.body}>
         <div className={styles.leftContainer}>
           <div>
             <img src={'/images/Top/footprints_l.png'} className={styles.footprintsLeftStyle} alt="足跡の画像" />

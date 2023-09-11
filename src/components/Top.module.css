@@ -4,8 +4,15 @@
   align-items: center;
 }
 
-.container {
+.header {
   display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+.body {
+  display: flex;
+  height: 90vh;
 }
 
 .leftContainer {
@@ -24,12 +31,14 @@
 
 .footprintsLeftStyle {
   position: absolute;
-  top: 100px;
+  top: 20px;
   right: 150px;
 }
 
 .footprintsRighttStyle {
   position: absolute;
+  bottom: 10px;
+  left: 30px;
 }
 
 .image1Style {
@@ -38,8 +47,8 @@
   height: 300px;
   border: 10px solid #BCD291;
   position: absolute;
-  top: 400px;
-  right: 150px;
+  bottom: 20px;
+  right: 100px;
 }
 
 .image2Style {
@@ -47,6 +56,10 @@
   width: 306px;
   height: 306px;
   border: 10px solid #78A5C3;
+  position: absolute;
+  top: -50px;
+  left: 50px
+
 }
 
 .image3Style {
@@ -56,5 +69,5 @@
   border: 10px solid #F1C103;
   position: absolute;
   top: 50px;
-  left: 100px;
+  left: 250px;
 }
