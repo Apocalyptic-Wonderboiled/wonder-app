@@ -8,11 +8,7 @@ function App() {
 
   const linkDecidePrefecturePage = () => setIsTopPage(false);
 
-  return (
-    <Container justifycontent="center" alignitems="center" style={{ minHeight: '100vh' }}>
-      {isTopPage ? <Top handleClick={linkDecidePrefecturePage} /> : <DecidePrefecture />}
-    </Container>
-  );
+  return <>{isTopPage ? <Top handleClick={linkDecidePrefecturePage} /> : <DecidePrefecture />}</>;
 }
 
 export default App;
