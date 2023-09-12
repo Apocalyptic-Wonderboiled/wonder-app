@@ -1,15 +1,3 @@
-.subtitle {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  height: 10vh;
-}
-
 .body {
   display: flex;
   height: 90vh;
