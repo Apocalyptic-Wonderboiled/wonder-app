@@ -22,7 +22,7 @@ export const Top = (props) => {
         </div>
 
         <div className={styles.rightContainer}>
-          <img src={'/images/Top/img_02.jpg'} className={styles.image2Style} alt="画像" />
+          <img src={'/images/Top/img_02.jpg'} className={styles.image2Style} alt="ランドマーク画像" />
           <img src={'/images/Top/footprints_r.png'} className={styles.footprintsRighttStyle} alt="足跡の画像" />
         </div>
       </div>
