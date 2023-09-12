@@ -1,0 +1,86 @@
+.modalContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 65vh;
+  max-width: 980px;
+  max-height: 750px;
+  padding: 70px 100px 60px;
+  border-radius: 30px;
+  background: #fff;
+}
+
+.modalLabel {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -50px;
+  width: 45vw;
+  height: 100px;
+  max-width: 516px;
+  background: #F8BAC2;
+  border-right: 0.1px solid #F8BAC2;
+  border-left: 0.1px solid #F8BAC2;
+}
+
+.modalLabel:before,
+.modalLabel:after {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  content: '';
+  border: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+}
+
+.modalLabel:before {
+  right: 100%;
+  border-right-color: #F8BAC2;
+}
+
+.modalLabel:after {
+  left: 100%;
+  border-left-color: #F8BAC2;
+}
+
+.modalLabel h3 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.modalLabelText {
+  margin-left: 24px;
+}
+
+.modalMain {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.modalImageContainer {
+  margin: 0 auto;
+  max-width: 445px;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+}
+
+.modalDescription {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
