@@ -84,3 +84,37 @@
   font-weight: bold;
   color: #333;
 }
+
+@media screen and (max-width: 767px) {
+  .modalContainer {
+    padding: 50px;
+  }
+
+  .modalLabel {
+    top: -35px;
+    height: 70px;
+  }
+
+  .modalLabel:before,
+  .modalLabel:after {
+    border: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-left: 35px solid transparent;
+  }
+
+  .modalLabel:before { 
+    border-right-color: #F8BAC2;
+  }
+  
+  .modalLabel:after {
+    border-left-color: #F8BAC2;
+  }
+
+  .modalLabel h3 {
+    font-size: 16px;
+  }
+
+  .modalLabelText {
+    margin-left: 0px;
+  }
+}
