@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal';
 import PlaceIcon from '@mui/icons-material/Place';
 import styles from './ResultModal.module.css';
 
-export const ResultModal = () => {
+export const ResultModal = (props) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
 
@@ -23,15 +23,10 @@ export const ResultModal = () => {
         </div>
         <div className={styles.modalMain}>
           <div className={styles.modalImageContainer}>
-            <img
-              // src={`/images/DecidePrefecture/${props.image}`}
-              src={`/images/DecidePrefecture/${'1_aomori.png'}`}
-              // alt={shuffledPrefectures[currentImageIndex].kanji}
-              className={styles.modalImage}
-            />
+            <img src={`/images/DecidePrefecture/${props.image}`} alt={props.alt} className={styles.modalImage} />
           </div>
           <p id="modal-description" className={styles.modalDescription}>
-            こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは
+            {props.text}
           </p>
         </div>
       </div>
