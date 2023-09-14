@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useChatGpt } from './../hooks/useChatGpt';
 import { useDecidePrefecture } from './../hooks/useDecidePrefecture';
 import { StartStopButton } from './StartStopButton';
 import { Loading } from './Loading';
 import styles from './DecidePrefecture.module.css';
 import { ErrorAlert } from './ErrorAlert';
+import { ResultModal } from './ResultModal';
+import { ScreenContext } from '../App';
 import { Header } from './Header';
 
 export const DecidePrefecture = () => {
+  const screen = useContext(ScreenContext);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [text, setText, getReply] = useChatGpt();
@@ -75,6 +78,14 @@ export const DecidePrefecture = () => {
           <div className={styles.eventContent}>
             <ErrorAlert text="おすすめスポットの取得ができませんでした。リロードしてもう一度お試しください。" />
           </div>
+        )}
+        {text && (
+          <ResultModal
+            image={shuffledPrefectures[currentImageIndex].image}
+            alt={shuffledPrefectures[currentImageIndex].kanji}
+            text={text}
+            callback={() => screen.setScreenTop(true)}
+          />
         )}
       </div>
     </>

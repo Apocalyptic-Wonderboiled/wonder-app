@@ -5,7 +5,10 @@ import styles from './ResultModal.module.css';
 
 export const ResultModal = (props) => {
   const [open, setOpen] = useState(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    props.callback();
+  };
 
   return (
     <Modal
