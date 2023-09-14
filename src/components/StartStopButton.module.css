@@ -1,0 +1,26 @@
+.button {
+  background: linear-gradient(to right, #FE6561, #FC9FAB);
+  color: #FFFFFF;
+  padding: 20px 90px 24px 65px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: background 0.3s, color 0.3s padding 0.3s transform 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(to left, #FE6561, #FC9FAB);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 20px 90px 24px 80px;
+  transform: scale(0.95);
+}
+
+.icon {
+  margin:0px 15px 0px 0px;
+}
+
+.button:hover .icon {
+  margin: 0px 5px 0px 0px;
+}

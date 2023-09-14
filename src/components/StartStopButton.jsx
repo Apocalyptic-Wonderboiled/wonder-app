@@ -1,11 +1,11 @@
-import Button from '@mui/material/Button';
+import styles from './StartStopButton.module.css';
 import PlaceIcon from '@mui/icons-material/Place';
 
 export const StartStopButton = (props) => {
   return (
-    <Button variant="contained" onClick={props.handleClick}>
-      <PlaceIcon fontSize="small" />
+    <button className={styles.button} onClick={props.handleClick}>
+      <PlaceIcon fontSize="midium" className={styles.icon} />
       {props.text}
-    </Button>
+    </button>
   );
 };

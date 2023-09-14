@@ -1,0 +1,64 @@
+.body {
+  display: flex;
+  height: 90vh;
+}
+
+.leftContainer {
+  width: 300px;
+  position: relative;
+}
+
+.centerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rightContainer {
+  width: 300px;
+  position: relative;
+}
+
+.footprintsLeftStyle {
+  position: absolute;
+  top: 20px;
+  right: 150px;
+}
+
+.footprintsRighttStyle {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+}
+
+.image1Style {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  border: 10px solid #BCD291;
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+}
+
+.image2Style {
+  border-radius: 50%;
+  width: 306px;
+  height: 306px;
+  border: 10px solid #78A5C3;
+  position: absolute;
+  top: -50px;
+  left: 50px
+
+}
+
+.image3Style {
+  border-radius: 50%;
+  width: 134px;
+  height: 134px;
+  border: 10px solid #F1C103;
+  position: absolute;
+  top: 50px;
+  left: 250px;
+}
