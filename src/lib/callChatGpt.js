@@ -11,7 +11,18 @@ export const callChatGpt = async (prefecture) => {
 
     const completion = await openai.chat.completions.create({
       messages: [
-        { role: 'user', content: `Tell us about your favorite destinations in ${prefecture} Prefecture in Japanese.` },
+        {
+          role: 'user',
+          content: `
+            What sightseeing spots and foods do you recommend in ${prefecture} Prefecture?
+
+            Output Format
+            bulleted list
+
+            Language
+            Japanese
+          `,
+        },
       ],
       model: 'gpt-3.5-turbo',
     });

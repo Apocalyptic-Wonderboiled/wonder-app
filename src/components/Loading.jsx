@@ -12,7 +12,7 @@ const theme = createTheme({
 
 export const Loading = () => {
   return (
-    <div>
+    <div className={styles.loadingContainer}>
       <p className={styles.loadingText}>おすすめスポット生成中...</p>
       <ThemeProvider theme={theme}>
         <LinearProgress />
