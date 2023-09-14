@@ -1,5 +1,4 @@
 import styles from './StartStopButton.module.css';
-import Button from '@mui/material/Button';
 import PlaceIcon from '@mui/icons-material/Place';
 
 export const StartStopButton = (props) => {
