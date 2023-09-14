@@ -42,7 +42,7 @@ export const DecidePrefecture = () => {
   }, [isAnimating]);
 
   const handleStopClick = () => {
-    if (text) return;
+    if (text || isError) return;
 
     setIsAnimating(false);
     setIsLoading(true);
@@ -51,19 +51,31 @@ export const DecidePrefecture = () => {
   return (
     <>
       <Header />
-      <div className={styles.imageContainer}>
-        <img
-          src={`/images/DecidePrefecture/${shuffledPrefectures[currentImageIndex].image}`}
-          alt={shuffledPrefectures[currentImageIndex].kanji}
-          className={styles.image}
-        />
-      </div>
-      <h1>あなたが行くのは{shuffledPrefectures[currentImageIndex] && shuffledPrefectures[currentImageIndex].kanji}</h1>
-      {isLoading && <Loading />}
-      {isError && <ErrorAlert text="おすすめスポットの取得ができませんでした。もう一度お試しください。" />}
-      <p>{text && text}</p>
-      <div className={styles.buttonContainer}>
-        <StartStopButton handleClick={handleStopClick} text="STOP" />
+      <div className={styles.DecidePrefectureContainer}>
+        {!isLoading && (
+          <>
+            <div className={styles.imageContainer}>
+              <img
+                src={`/images/DecidePrefecture/${shuffledPrefectures[currentImageIndex].image}`}
+                alt={shuffledPrefectures[currentImageIndex].kanji}
+                className={styles.image}
+              />
+            </div>
+            <div className={styles.buttonContainer}>
+              <StartStopButton handleClick={handleStopClick} text="STOP" />
+            </div>
+          </>
+        )}
+        {isLoading && (
+          <div className={styles.eventContent}>
+            <Loading />
+          </div>
+        )}
+        {isError && (
+          <div className={styles.eventContent}>
+            <ErrorAlert text="おすすめスポットの取得ができませんでした。リロードしてもう一度お試しください。" />
+          </div>
+        )}
       </div>
     </>
   );
