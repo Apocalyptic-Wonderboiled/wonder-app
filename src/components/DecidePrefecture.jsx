@@ -5,6 +5,7 @@ import { StartStopButton } from './StartStopButton';
 import { Loading } from './Loading';
 import styles from './DecidePrefecture.module.css';
 import { ErrorAlert } from './ErrorAlert';
+import { Header } from './Header';
 
 export const DecidePrefecture = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,6 +50,7 @@ export const DecidePrefecture = () => {
 
   return (
     <>
+      <Header />
       <div className={styles.imageContainer}>
         <img
           src={`/images/DecidePrefecture/${shuffledPrefectures[currentImageIndex].image}`}
