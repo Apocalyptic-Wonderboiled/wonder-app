@@ -1,3 +1,25 @@
+# アプリの概要
+
+### 1, テーマ
+47都道府県からランダムで旅行先を決定するアプリ
+
+<img src='https://github.com/Apocalyptic-Wonderboiled/wonder-app/assets/63830279/a7159de9-486b-4842-ab4e-cd2eb5bc4b8a' width='50%'><img src='https://github.com/Apocalyptic-Wonderboiled/wonder-app/assets/63830279/8f17d461-1038-4e58-b532-52ddca7c2f96' width='50%'>
+
+### 2, 仕様詳細
+- TOPの「はじめる」ボタンを押すと都道府県画像のシャッフルが始まり、「STOP」ボタンを押すと都道府県が決定する
+- その際、chatGPTからその都道府県のおすすめを教えてもらえる
+
+### 3, 使用技術
+#### フロントエンド
+- React
+  - version: 18系
+
+#### インフラ
+- Vercel
+
+#### 外部API
+- openAI
+
 # ローカルでのアプリケーションの起動方法
 ### 1, git clone リポジトリ
 ### 2, プロジェクトのルート（package.jsonがあるディレクトリ）で下記コマンドを実行
