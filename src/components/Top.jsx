@@ -22,7 +22,7 @@ export const Top = (props) => {
         </div>
 
         <div className={styles.centerContainer}>
-          <img src={'/images/Top/japan.png'} alt="日本列島の画像" />
+          <img src={'/images/Top/japan.png'} className={styles.japanStyle} alt="日本列島の画像" />
           <StartStopButton handleClick={props.handleClick} text="はじめる" />
         </div>
 
