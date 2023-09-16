@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .rightContainer {
@@ -24,12 +25,26 @@
   position: absolute;
   top: 20px;
   right: 150px;
+  &:hover {
+    animation: move 5s ease-in-out infinite;
+  }
+  
+}
+
+.japanStyle {
+  &:hover {
+    animation: scale 5s ease-in-out infinite; 
+  }
 }
 
 .footprintsRighttStyle {
   position: absolute;
   bottom: 10px;
   left: 30px;
+  &:hover {
+    animation: move2 5s ease-in-out infinite;
+  }
+  
 }
 
 .image1Style {
@@ -40,6 +55,7 @@
   position: absolute;
   bottom: 20px;
   right: 80px;
+  animation: float 3s ease-in-out infinite; 
 }
 
 .image2Style {
@@ -49,8 +65,8 @@
   border: 10px solid #78A5C3;
   position: absolute;
   top: -50px;
-  left: 50px
-
+  left: 50px;
+  animation: float 3s ease-in-out infinite; 
 }
 
 .image3Style {
@@ -61,8 +77,70 @@
   position: absolute;
   top: 50px;
   left: 250px;
+  animation: float 3s ease-in-out infinite; 
 }
 
 .hidden {
   display: none;
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* 上に浮かび上がる */
+  }
+}
+@keyframes float2 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px); /* 下に下がる */
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1); /* 通常のサイズ */
+  }
+  50% {
+    transform: scale(1.1); /* 拡大 */
+  }
+}
+
+@keyframes move {
+  0%{
+    transform: translate(0, 0); /* 初期位置 */
+  }
+  25% {
+    transform: translate(20px, 10px); /* 右上に移動 */
+  }
+  50% {
+    transform: translate(20px, 20px); /* 下に移動 */
+  }
+  75% {
+    transform: translate(0, 30px); /* 左下に移動 */
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(0, 0); /* 初期位置 */
+  }
+  25% {
+    transform: translate(10px, -10px); /* 右上に移動 */
+  }
+  40% {
+    transform: translate(10px, 10px); /* 右下に移動 */
+  }
+  65% {
+    transform: translate(20px, -10px); /* 右上に移動 */
+  }
+  80% {
+    transform: translate(20px, -30px);
+  }
+
 }
